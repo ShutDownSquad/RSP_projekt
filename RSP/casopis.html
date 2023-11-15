@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Školní časopis VŠPJ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #logo {
+            max-width: 100px;
+            max-height: 100px;
+            background-size: cover;
+        }
+
+        #title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            border-bottom: 1px solid #ccc;
+            background-color: #f9f9f9;
+            padding: 10px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+
+        #ad-container {
+            text-align: center; /* umístění reklamy na střed */
+        }
+
+        #ad {
+            display: inline-block;
+            margin: 20px;
+            padding: 10px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="obrazky/logo_vspj.png" alt="Školní časopis logo" id="logo">
+        <div id="title">Školní časopis VŠPJ</div>
+        <button class="button">Přihlásit</button>
+    </header>
+
+    <nav>
+        <button class="button">Domů</button>
+        <button class="button">Komunikace</button>
+        <button class="button">Recenze</button>
+        <div class="dropdown">
+            <button class="button">Seřadit</button>
+            <div class="dropdown-content">
+                <a href="#">Podle vydání</a>
+                <a href="#">Podle hodnocení</a>
+                <a href="#">Podle jména</a>
+            </div>
+        </div>
+    </nav>
+
+    <div id="ad-container">
+        <div id="ad">
+            <p>Zde může být vaše reklama</p>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Název článku</th>
+                <th>Datum vydání</th>
+                <th>Hodnocení</th>
+                <th>Zobrazit</th>
+                <th>Stáhnout</th>
+                <th>Přečíst recenze</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Tady budou data článků -->
+        </tbody>
+    </table>
+
+</body>
+</html>
