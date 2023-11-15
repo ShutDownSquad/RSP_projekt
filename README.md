@@ -1,4 +1,4 @@
-# RSP_projekt "Aplikace pro prohlížení"
+# RSP_projekt 
 
 ## Tým: ShutDownSquad
 
