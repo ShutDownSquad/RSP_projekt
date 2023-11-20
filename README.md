@@ -22,4 +22,4 @@ Tato platforma bude postavena s využitím moderních technologií, jako jsou PH
 Veškerá dokumentace se nachází na [GitHubu](https://github.com/ShutDownSquad/RSP_projekt), v týmových dokumentech a na školním serveru.
 
 ## Časopis
-Hotový projekt lze vidět [zde](https://alpha.kts.vspj.cz/~pribyl43/RSP/casopis.html).
+Rozpracovaný projekt lze vidět [zde](https://alpha.kts.vspj.cz/~pribyl43/RSP/casopis.html).
