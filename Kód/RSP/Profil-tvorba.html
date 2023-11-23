@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrace profilu</title>
+    <!-- Styly zůstávají nezměněny -->
+
+    
+    <style>
+           
+           body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #add8e6; /* světle modré pozadí */
+        }
+
+        .container {
+            width: 800px;
+            height: 600px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        label {
+            margin-top: 10px;
+        }
+
+        input, select, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #profileImage {
+            max-width: 300px;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: block;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        #description {
+            width: 50%;
+            padding-left: 10px;
+        }
+
+        /* Odstranění rámečku u pole profilový obrázek */
+        #profileImageInput {
+            border: none;
+            outline: none;
+        }
+
+        /* Zabránění změny velikosti pole popisu profilu */
+        #bio {
+            resize: none;
+            width:350px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- První formulář -->
+        <form id="profileForm" method="post" action="Profil-tvorba.php" enctype="multipart/form-data">
+            <h1>Vytvořte svůj profil</h1>
+            <label for="role">Role:</label>
+            <select id="role" name="role">
+                <option value="autor">Autor</option>
+                <option value="redaktor">Redaktor</option>
+                <option value="uzivatel">Uživatel</option>
+                <option value="recenzent">Recenzent</option>
+            </select>
+            <label for="name">Jméno:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="password">Heslo:</label>
+            <input type="password" id="password" name="password" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="birthdate">Datum narození:</label>
+            <input type="date" id="birthdate" name="birthdate">
+            <button type="submit">Vytvořit profil</button>
+        
+        <div style="margin-top: -433px; margin-left: 400px; " method="post" action="Profil-tvorba.php" enctype="multipart/form-data">
+            <label for="profileImage" style="margin-left: 10px ;">Obrázek:</label>
+            <input type="file" id="profileImageInput" name="profileImage" accept="image/*" onchange="previewImage()">
+            <img id="profileImage" src="#" alt="Profilový obrázek" style="display: none;">
+            <div id="description">
+                <label for="bio">Popisek:</label>
+                <textarea id="bio" name="bio" rows="4"></textarea>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <!-- JavaScript zůstává nezměněn -->
+    <script>
+        function previewImage() {
+            var input = document.getElementById('profileImageInput');
+            var preview = document.getElementById('profileImage');
+            
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            } else {
+                preview.src = '#';
+                preview.style.display = 'none';
+            }
+        }
+    </script>
+
+
+</body>
+</html>
