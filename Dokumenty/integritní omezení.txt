@@ -1,0 +1,61 @@
+Primární klíče
+
+ALTER TABLE autor
+ADD PRIMARY KEY (id_autora);
+
+ALTER TABLE redaktor
+ADD PRIMARY KEY (id_redaktora);
+
+ALTER TABLE recenzent
+ADD PRIMARY KEY (id_recenzenta);
+
+ALTER TABLE admin
+ADD PRIMARY KEY (jmeno);
+
+ALTER TABLE clanek
+ADD PRIMARY KEY (id_clanku);
+
+Cizí klíče
+
+ALTER TABLE recenze
+ADD FOREIGN KEY (id_autora) REFERENCES autor(id_autora),
+ADD FOREIGN KEY (id_recenzenta) REFERENCES recenzent(id_recenzenta),
+ADD FOREIGN KEY (id_clanku) REFERENCES clanek(id_clanku);
+
+ALTER TABLE clanek
+ADD FOREIGN KEY (id_autora) REFERENCES autor(id_autora),
+ADD FOREIGN KEY (recenze_1) REFERENCES recenze(id_recenze),
+ADD FOREIGN KEY (recenze_2) REFERENCES recenze(id_recenze);
+
+Unikátní omezení
+
+ALTER TABLE autor
+ADD CONSTRAINT unique_email_autor UNIQUE (email);
+
+ALTER TABLE redaktor
+ADD CONSTRAINT unique_email_redaktor UNIQUE (email);
+
+ALTER TABLE recenzent
+ADD CONSTRAINT unique_email_recenzent UNIQUE (email);
+
+ALTER TABLE admin
+ADD CONSTRAINT unique_jmeno_admin UNIQUE (jmeno);
+
+Omezení hodnocení
+
+ALTER TABLE recenze
+ADD CHECK (aktualnost BETWEEN 1 AND 5),
+ADD CHECK (originalita BETWEEN 1 AND 5),
+ADD CHECK (odborna_uroven BETWEEN 1 AND 5),
+ADD CHECK (jazyk_stylistika BETWEEN 1 AND 5),
+
+Datum recenze
+
+ALTER TABLE recenze
+ADD CHECK (datum <= CURRENT_DATE);
+
+
+
+
+
+ 
