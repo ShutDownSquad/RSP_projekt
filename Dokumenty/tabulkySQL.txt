@@ -1,0 +1,38 @@
+CREATE TABLE `uzivatel` (
+  `id` int(11) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `jmeno` varchar(50) NOT NULL,
+  `heslo` varchar(255) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `datum_narozeni` date DEFAULT NULL,
+  `bio` text DEFAULT NULL,
+  `image_path` varchar(255) DEFAULT NULL
+)
+
+INSERT INTO `uzivatel` (`id`, `role`, `jmeno`, `heslo`, `email`, `datum_narozeni`, `bio`, `image_path`) VALUES
+(3, 'uzivatel', 'adam', '$2y$10$ir7KJZ6agu7BBxdZkmgkVuLt.QC1KHpLj5.2JxBUgda40LacHfe7y', 'adam.kridla@seznam.cz', '2023-11-01', 'hehe', '330929247_1250653209186475_2728814817127569297_n.jpg'),
+(4, 'autor', 'honza', '$2y$10$PAwlfHTIH7NfzYuEwkavkuunt5umzGW/0GepBJvKyopNA/0y4iNq6', 'honza@seznam.cz', '2023-11-03', 'autor tady', '330894231_1398730677650919_3052937995377843134_n.jpg'),
+(5, 'autor', 'jan', '$2y$10$ds6bJ8GSaRPxN.aPTSancuuS0cT7Hy/u.VFzUp6MOrIadBNrCWalS', 'jan@seznam.cz', '2023-11-09', 'hehe', '330929247_1250653209186475_2728814817127569297_n.jpg'),
+(6, 'autor', 'pepek', '$2y$10$ZETjU/HTo7vsvw7gA6XGmOtpzmxzP5K8uHGtKWih5mdnMjbk1PlgW', 'pepek@seznam.cz', '2023-11-01', 'pepek profil', '/home/kolar17/public_html/TIS/casopis/uploads/330929247_1250653209186475_2728814817127569297_n.jpg'),
+(7, 'autor', 'autor', '$2y$10$jyLUp0Fn1LW4r2eTNAg5.ODzOPTmfGIT7aWrMJqjWRH8vb/xtCRAe', 'abc@abc.com', '2005-01-16', '', '');
+
+CREATE TABLE `clanky` (
+  `id_clanku` int(11) NOT NULL,
+  `nazev` varchar(255) DEFAULT NULL,
+  `komentar` text DEFAULT NULL,
+  `sekce` varchar(50) DEFAULT NULL,
+  `tagy` varchar(255) DEFAULT NULL,
+  `pdf_path` varchar(255) DEFAULT NULL
+)
+
+INSERT INTO `clanky` (`id_clanku`, `nazev`, `komentar`, `sekce`, `tagy`, `pdf_path`) VALUES
+(1, 'clanek1', 'hehe', 'sekce1', 'tag1', '/home/kolar17/public_html/TIS/casopis/uploads/Potvrzeni_o_studiu_Kolář_Adam_2023.09.25_13_12.pdf.pdf'),
+(6, 'sdsd', 'sdsd', 'sekce1', 'dsds', 'C:\\xampp\\htdocs\\test_sds\\uploadsZadání projektu PTV (1).pdf');
+
+
+ALTER TABLE `clanky`
+  ADD PRIMARY KEY (`id_clanku`);
+
+ALTER TABLE `clanky`
+  MODIFY `id_clanku` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
