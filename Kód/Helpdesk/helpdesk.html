@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk Formulář</title>
+    <style>
+        #chat-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 300px;
+            overflow-y: scroll;
+        }
+    </style>
+</head>
+<body>
+    <h2>Nahlásit Bug / Dotaz</h2>
+    <form id="helpdeskForm" method="post">
+        <label for="subject">Předmět:</label>
+        <input type="text" id="subject" name="subject" required><br>
+
+        <label for="description">Popis:</label>
+        <textarea id="description" name="description" required></textarea><br>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <button onclick="sendMessage()">Odeslat</button>
+    </form>
+
+    <h2>Chat</h2>
+    <div id="chat-container"></div>
+    <input type="text" id="message-input" placeholder="Napište zprávu">
+    <button onclick="sendMessage()">Odeslat</button>
+
+    <script>
+        function updateChat() {
+            // AJAX dotaz na server pro aktualizaci chatu
+            const xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    document.getElementById('chat-container').innerHTML = xhr.responseText;
+                }
+            };
+            //xhr.open('GET', 'get_chat.php', true); 
+            //xhr.send();
+        }
+
+        function sendMessage() {
+            var helpdeskForm = document.getElementById('helpdeskForm');
+            var formData = new formData(helpdeskForm);   
+
+            $.ajax({
+                type: 'POST',
+                url: 'process_form.php',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var result = JSON.parse(response);
+
+                    if (result.status === 'success') {
+                        // Úspěch - zobrazím potvrzení
+                        alert('Článek byl úspěšně uložen.');
+                    } else {
+                        // Chyba - zobrazím chybovou zprávu
+                        alert('Chyba: ' + result.message);
+                    }
+                },
+                error: function() {
+                    alert('Chyba při odesílání dat na server.'); 
+                }
+            })
+        }
+
+        // Aktualizovat chat každých 5 sekund
+        setInterval(updateChat, 5000);
+
+        // Načíst chat při načtení stránky
+        updateChat();
+    </script>
+</body>
+</html>
