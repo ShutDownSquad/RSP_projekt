@@ -1,0 +1,8 @@
+pozadi formuláře možné změnit na jine foto
+barvy formuláře také
+
+formulář normalně na lokalu funguje, je to přes api smpt na netu.
+
+
+email: rpsHelpdeskVSPJ@gmail.cz
+pass :rsphelpdesk1

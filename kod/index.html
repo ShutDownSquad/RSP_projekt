@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Přihlášení</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #bbe9db;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #container {
+            width: 400px;
+            background-color: #aeccc6;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 100px;
+            min-height: 100px;
+            max-height: 200px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4caf50;
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+
+        #title {
+            font-size: 40px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+  <div id="container">
+      <form action="proces_prihlaseni.php" method="post">
+          <h1>Přihlášení</h1>
+          <label for="jmeno">Jméno:</label>
+          <input type="text" id="jmeno" name="jmeno" required>
+
+          <label for="heslo">Heslo:</label>
+          <input type="password" id="heslo" name="heslo" required>
+
+          <input type="submit" value="Přihlásit se">
+      </form>
+    <input type="button" value="Registrovat se" onclick="window.location.href='registrace.php'">
+    <input type="button" value="Přihlásit se jako host" onclick="window.location.href='host_casopis.php'">
+  </div>
+</body>
+</html>

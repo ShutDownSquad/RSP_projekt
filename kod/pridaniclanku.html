@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nahrání časopisu</title>
+    <!-- Styly zůstávají nezměněny -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Formulář pro nahrání článku -->
+        <form id="articleForm" method="post" action="save_clanek.php" enctype="multipart/form-data">
+            <h1>Nahrání článku</h1>
+            <label for="nazev">Název článku:</label>
+            <input type="text" id="nazev" name="nazev" required>
+            <label for="pdf_file">PDF článku:</label>
+            <input type="file" id="pdf_file" name="pdf_file" accept=".pdf" required>
+            <label for="komentar">Komentář článku:</label>
+            <textarea id="komentar" name="komentar" rows="4" required></textarea>
+            <button type="submit">Nahrát článek</button>
+        </form>
+    </div>
+</body>
+</html>

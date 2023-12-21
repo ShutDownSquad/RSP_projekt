@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ikony -->
+    <script src="https://kit.fontawesome.com/13529e2a7d.js" crossorigin="anonymous"></script>
+    <!-- js emaily -->
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+
+    
+
+    <script>
+        function sendEmail() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var zprava = document.getElementById("message").value;
+
+            var messagebody = "Jméno: " + name + "<br>" + "Telefon: " + phone + "<br>" + "Email: " + email + "<br>" + "Zpráva: " + zprava; 
+            Email.send({
+            Host : "smtp.elasticemail.com",
+            Username : "rspHelpdeskVSPJ@gmail.com",
+            Password : "BD9ED0F50E181C32C8832B7684FF7D4494EA",
+            To : 'rspHelpdeskVSPJ@gmail.com',
+            From : 'ondrejvosahlo@seznam.cz',
+            Subject : "Helpdesk Zpráva",
+            Body : messagebody
+        }).then(
+            message => alert(message)
+        );  
+        }
+    </script>
+
+    <div class="background">
+
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <div class="head">
+                <h2>Napište Nám</h2>
+            </div>
+            
+            <div class="row">
+                <div class="input">
+                    <input type="text" id="name" required>
+                    <label for="name"><i class="fa-solid fa-user"></i> Jméno</label>
+                </div>
+    
+                <div class="input">
+                    <input type="text" id="phone" required>
+                    <label for="phone"><i class="fa-solid fa-phone-square-alt"></i> Telefon</label>
+                </div>
+            </div>
+
+            <div class="input">
+                <input type="email" id="email" required>
+                <label for="email"><i class="fa-solid fa-envelope"></i> Email</label>
+            </div>
+
+            <div class="input">
+                <textarea id="message" rows="8" required></textarea>
+                <label for="message"><i class="fa-solid fa-comments"></i> Zpráva</label>
+            </div>
+
+            <button type="submit">Poslat <i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+    </div>
+    
+</body>
+</html>
